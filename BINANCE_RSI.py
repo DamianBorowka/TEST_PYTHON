@@ -361,19 +361,7 @@ def buy_coin(symbol):
     #print(abs(current_timestamp()))
     #print(timestamp_last_buy[symbol])
     #print((abs(current_timestamp() - timestamp_last_buy[symbol])))
-
-
-
-
-
-
-    #PO SPRZEDAZY DAC BLOKADE ZAKUPU NA 1D!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    # ale tylko po całkowitej sprzedaży bo urzytkownik mógł cześciowo się pozbyć np przez ręczne sprzedanie
-    #delta_time_buy = abs(current_timestamp() - timestamp_last_buy[symbol])
     delta_time_sell = abs(current_timestamp() - timestamp_last_sell[symbol])
-
-
-
 
     if ((abs(current_timestamp() - timestamp_last_buy[symbol]) >= BLOKADA_ZAKUPU_W_MS) or timestamp_last_buy[symbol] == 0) and ((delta_time_sell >= 86400000) or (timestamp_last_sell[symbol] == 0)): # and delta_time 
         if (closes_5m[symbol][-1]  <= (COIN_IN_GAME_AVERAGE_PRICE[symbol]-(COIN_IN_GAME_AVERAGE_PRICE[symbol]*0.05))):
